@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Evaluasi Kepuasan Siswa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <div class="header-wrapper">
+      <div class="header-inner">
+        <div class="logo-left">
+          <img src="assets/images/kai.png" alt="Logo KAI">
+        </div>
+
+        <div class="header-center">
+          <h1>Form Evaluasi Kepuasan Siswa</h1>
+          <p>
+            Evaluasi Kepuasan Siswa<br>
+            Terhadap Isi Program dan Fasilitas<br>
+            Darman Prasetyo Corporate University
+          </p>
+        </div>
+
+        <div class="logo-right">
+          <img src="assets/images/operation.png" alt="Operation Safety Academy">
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= HALAMAN LOGIN ================= -->
+    <div class="container" id="loginPage">
+      <div class="section">
+        <div class="section-title">Tanggal Pengisian</div>
+        <input type="text" id="tanggalLogin" readonly class="tanggal-box" />
+      </div>
+
+      <label>Nama Peserta</label>
+      <input type="text" id="namaPeserta" placeholder="Masukkan Nama Anda" />
+
+      <label>NIPP (Nomor Induk Pegawai Perusahaan)</label>
+      <input type="text" id="NIPPPeserta" placeholder="Masukkan NIPP Anda (angka saja)" inputmode="numeric" pattern="[0-9]*" />
+
+      <div id="nippError" style="color:red; font-size:13px; margin-top:5px;"></div>
+
+      <label>Nama Diklat</label>
+      <select id="diklatSelect">
+      <option value="">Memuat data...</option>
+    </select>
+
+    <label>Kedudukan</label>
+    <select id="kedudukanSelect">
+      <option value="">Memuat data...</option>
+    </select>
+
+      <button onclick="login()">Masuk</button>
+      <button onclick="window.location.href='index.html'">Kembali</button>
+    </div>
+    <!-- ===== END LOGIN ===== -->
+
+    <!-- ================= HALAMAN FORM ================= -->
+    <div class="container hidden" id="formPage">
+
+      <div class="section">
+        <div class="section-title">Identitas</div>
+        <p><strong>Peserta:</strong> <span id="pesertaNama"></span></p>
+        <p><strong>NIPP:</strong> <span id="pesertaNIPP"></span></p>
+      </div>
+
+      <form id="evaluasiForm">
+
+        <input type="hidden" name="Nama" id="namaHidden" />
+        <input type="hidden" name="Tanggal" id="tanggalHidden" />
+        <input type="hidden" name="NIPP" id="nippHidden" />
+        <input type="hidden" name="Diklat" id="diklatHidden" />
+        <input type="hidden" name="Kedudukan" id="kedudukanHidden" />
+        <input type="hidden" name="form_type" value="FASILITAS">
+
+        <!-- ================= KEPUASAN ================= -->
+        <div class="form-card">
+      <div class="section-header">Kepuasan Terhadap Isi Program</div>
+
+      <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Kepuasan isi program terhadap sasaran <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="kepuasan_sasaran" value="1" required> 1</label>
+            <label><input type="radio" name="kepuasan_sasaran" value="2"> 2</label>
+            <label><input type="radio" name="kepuasan_sasaran" value="3"> 3</label>
+            <label><input type="radio" name="kepuasan_sasaran" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Isi program pelatihan tersusun secara sistematis <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="program_sistematis" value="1" required> 1</label>
+            <label><input type="radio" name="program_sistematis" value="2"> 2</label>
+            <label><input type="radio" name="program_sistematis" value="3"> 3</label>
+            <label><input type="radio" name="program_sistematis" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <div class="scale-container">
+        <div class="scale-label">
+          Durasi Pelatihan <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="durasi_pelatihan" value="1" required> 1</label>
+            <label><input type="radio" name="durasi_pelatihan" value="2"> 2</label>
+            <label><input type="radio" name="durasi_pelatihan" value="3"> 3</label>
+            <label><input type="radio" name="durasi_pelatihan" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <div class="scale-container">
+        <div class="scale-label">
+          Kesesuaian Penggunaan Metode Pengajaran (teori, praktek, diskusi, dll) <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="metode_pengajaran" value="1" required> 1</label>
+            <label><input type="radio" name="metode_pengajaran" value="2"> 2</label>
+            <label><input type="radio" name="metode_pengajaran" value="3"> 3</label>
+            <label><input type="radio" name="metode_pengajaran" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <div class="scale-container">
+        <div class="scale-label">
+          Penambahan Keterampilan/pengetahuan dari program pelatihan yang diajarkan (teori, praktek, diskusi, dll) <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="penambah_keterampilan" value="1" required> 1</label>
+            <label><input type="radio" name="penambah_keterampilan" value="2"> 2</label>
+            <label><input type="radio" name="penambah_keterampilan" value="3"> 3</label>
+            <label><input type="radio" name="penambah_keterampilan" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <div class="form-card">
+      <div class="section-header">Kepuasan Terhadap Pelayanan Staff Penyelenggara & Fasilitas</div>
+
+      <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Pelayanan Staff Penyelenggara <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="pelayanan_staff" value="1" required> 1</label>
+            <label><input type="radio" name="pelayanan_staff" value="2"> 2</label>
+            <label><input type="radio" name="pelayanan_staff" value="3"> 3</label>
+            <label><input type="radio" name="pelayanan_staff" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Fasilitas Pelatihan (ruang kelas, perpusatakaan, media pelatihan) <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="fasilitas_pelatihan" value="1" required> 1</label>
+            <label><input type="radio" name="fasilitas_pelatihan" value="2"> 2</label>
+            <label><input type="radio" name="fasilitas_pelatihan" value="3"> 3</label>
+            <label><input type="radio" name="fasilitas_pelatihan" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Fasilitas Kamar (ruang kamar, meja/kursi belajar) <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="fasilitas_kamar" value="1" required> 1</label>
+            <label><input type="radio" name="fasilitas_kamar" value="2"> 2</label>
+            <label><input type="radio" name="fasilitas_kamar" value="3"> 3</label>
+            <label><input type="radio" name="fasilitas_kamar" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+    <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Fasilitas Kamar Mandi/WC <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="fasilitas_wc" value="1" required> 1</label>
+            <label><input type="radio" name="fasilitas_wc" value="2"> 2</label>
+            <label><input type="radio" name="fasilitas_wc" value="3"> 3</label>
+            <label><input type="radio" name="fasilitas_wc" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+
+    <!-- Pertanyaan 1 -->
+      <div class="scale-container">
+        <div class="scale-label">
+          Makanan (variasi menu, jumlah/volume makanan, dll) <span style="color:red">*</span>
+        </div>
+
+        <div class="scale-options">
+          <span>Sangat Tidak Puas</span>
+
+          <div class="numbers">
+            <label><input type="radio" name="kepuasan_makan" value="1" required> 1</label>
+            <label><input type="radio" name="kepuasan_makan" value="2"> 2</label>
+            <label><input type="radio" name="kepuasan_makan" value="3"> 3</label>
+            <label><input type="radio" name="kepuasan_makan" value="4"> 4</label>
+          </div>
+
+          <span>Sangat Puas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="section-header">
+        Kritik dan Saran Terhadap Isi Program
+      </div>
+
+      <textarea name="kritik_isi_program" rows="4"
+      placeholder="Jawaban Anda"></textarea>
+    </div>
+
+    <!-- ========================= -->
+    <!-- KRITIK FASILITAS -->
+    <!-- ========================= -->
+
+    <div class="form-card">
+      <div class="section-header">
+        Kritik dan Saran Terhadap Fasilitas & Program
+      </div>
+
+      <textarea name="kritik_fasilitas_program" rows="4"
+      placeholder="Jawaban Anda"></textarea>
+    </div>
+
+    <div class="form-card">
+      <div class="section-header">
+        Apa yang Anda Dapat Setelah Mengikuti Diklat Ini(terkait pengetahuan, keterampilan, dan sikap)
+      </div>
+
+      <textarea name="dapat_apa" rows="4"
+      placeholder="Jawaban Anda"></textarea>
+    </div>
+
+    <div class="form-card">
+      <div class="section-header">
+        Adakah Perbedaan Antara Sebelum dan Setelah Mengikuti Diklat?
+      </div>
+
+      <textarea name="perbedaan_sebelum_sesudah" rows="4"
+      placeholder="Jawaban Anda"></textarea>
+    </div>
+
+
+        <button type="submit">Kirim Evaluasi</button>
+
+      </form>
+
+    </div>
+    <!-- ===== END FORM PAGE ===== -->
+
+
+    <!-- ================= SUCCESS OVERLAY ================= -->
+    <div class="overlay" id="successOverlay">
+      <div class="success-card">
+        <div class="checkmark">✔</div>
+        <h2>Evaluasi Berhasil Dikirim</h2>
+        <p>Terima kasih atas partisipasi Anda.</p>
+        <button onclick="kembaliKeAwal()">Isi Evaluasi Lagi</button>
+      </div>
+    </div>
+
+    <!-- ======== SCRIPT ======== -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

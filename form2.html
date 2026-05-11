@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kuesioner Bimsuh - KAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <div class="header-wrapper">
+      <div class="header-inner">
+        <div class="logo-left">
+          <img src="assets/images/kai.png" alt="Logo KAI" />
+        </div>
+
+        <div class="header-center">
+          <h1>Kuesioner KAI</h1>
+          <p>
+            Kuesioner Penilaian Bimsuh<br />
+            Diklat PPKA Tahun 2026<br />
+            Darman Prasetyo Corporate University
+          </p>
+        </div>
+
+        <div class="logo-right">
+          <img src="assets/images/operation.png" alt="Operation Safety Academy" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= HALAMAN LOGIN ================= -->
+    <div class="container" id="loginPage">
+      <div class="section">
+        <div class="section-title">Tanggal Pengisian</div>
+        <input type="text" id="tanggalLogin" readonly class="tanggal-box" />
+      </div>
+
+      <label>Nama Peserta</label>
+      <input type="text" id="namaPeserta" placeholder="Masukkan Nama Anda" />
+
+      <label>NIPP (Nomor Induk Pegawai Perusahaan)</label>
+      <input type="text" id="NIPPPeserta" placeholder="Masukkan NIPP Anda (angka saja)" inputmode="numeric" pattern="[0-9]*" />
+
+      <div id="nippError" style="color: red; font-size: 13px; margin-top: 5px"></div>
+
+      <label>Nama Diklat</label>
+      <select id="diklatSelect">
+        <option value="">Memuat data...</option>
+      </select>
+
+      <label>Kedudukan</label>
+      <select id="kedudukanSelect">
+        <option value="">Memuat data...</option>
+      </select>
+
+      <button onclick="login()">Masuk</button>
+      <button onclick="window.location.href = 'index.html'">Kembali</button>
+    </div>
+    <!-- ===== END LOGIN ===== -->
+
+    <!-- ================= HALAMAN FORM ================= -->
+    <div class="container hidden" id="formPage">
+      <div class="section">
+        <div class="section-title">Identitas</div>
+        <p><strong>Peserta:</strong> <span id="pesertaNama"></span></p>
+        <p><strong>NIPP:</strong> <span id="pesertaNIPP"></span></p>
+      </div>
+
+      <form id="evaluasiForm">
+        <input type="hidden" name="Nama" id="namaHidden" />
+        <input type="hidden" name="Tanggal" id="tanggalHidden" />
+        <input type="hidden" name="NIPP" id="nippHidden" />
+        <input type="hidden" name="Diklat" id="diklatHidden" />
+        <input type="hidden" name="Kedudukan" id="kedudukanHidden" />
+        <input type="hidden" name="form_type" value="BIMSUH" />
+
+        <!-- ================= KEPUASAN ================= -->
+        <div class="form-card">
+          <div class="section-header">Nama Bimsuh</div>
+
+          <textarea name="Nama_Bimsuh" rows="4" placeholder="Jawaban Anda"></textarea>
+        </div>
+
+        <!-- Pertanyaan 1 -->
+        <div class="scale-container">
+          <div class="scale-label">Bimsuh mampu meningkatkan kualitas pembentukan pribadi saya <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Kualitas_Bimsuh" value="1" required /> 1</label>
+              <label><input type="radio" name="Kualitas_Bimsuh" value="2" /> 2</label>
+              <label><input type="radio" name="Kualitas_Bimsuh" value="3" /> 3</label>
+              <label><input type="radio" name="Kualitas_Bimsuh" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 2 -->
+        <div class="scale-container">
+          <div class="scale-label">Metode yang diberlakukan bimsuh sangat efektif untuk meningkatkan kualitas pembentukan prbiadi saya <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Metode_Bimsuh" value="1" required /> 1</label>
+              <label><input type="radio" name="Metode_Bimsuh" value="2" /> 2</label>
+              <label><input type="radio" name="Metode_Bimsuh" value="3" /> 3</label>
+              <label><input type="radio" name="Metode_Bimsuh" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <div class="scale-container">
+          <div class="scale-label">Saya tidak merasa keberatan dengan metode dimaksud pada point no.2 <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Keberatan_Metode" value="1" required /> 1</label>
+              <label><input type="radio" name="Keberatan_Metode" value="2" /> 2</label>
+              <label><input type="radio" name="Keberatan_Metode" value="3" /> 3</label>
+              <label><input type="radio" name="Keberatan_Metode" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <div class="scale-container">
+          <div class="scale-label">Kedisiplinan yang diterapkan bimsuh bermanfaat bagi kehidupan saya <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Kedisiplinan_Bimsuh" value="1" required /> 1</label>
+              <label><input type="radio" name="Kedisiplinan_Bimsuh" value="2" /> 2</label>
+              <label><input type="radio" name="Kedisiplinan_Bimsuh" value="3" /> 3</label>
+              <label><input type="radio" name="Kedisiplinan_Bimsuh" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <div class="scale-container">
+          <div class="scale-label">Nilai-nilai pembelajaran yang diberikan bimsuh sesuai dengan tujuan pelatihan yang saya ikuti <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Nilai_Pembelajaran" value="1" required /> 1</label>
+              <label><input type="radio" name="Nilai_Pembelajaran" value="2" /> 2</label>
+              <label><input type="radio" name="Nilai_Pembelajaran" value="3" /> 3</label>
+              <label><input type="radio" name="Nilai_Pembelajaran" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 1 -->
+        <div class="scale-container">
+          <div class="scale-label">Peranan bimsuh pada pelayihan yang saya ikuti sangatlah penting <span style="color: red">*</span></div>
+
+          <div class="scale-options">
+            <span>Sangat Tidak Puas</span>
+
+            <div class="numbers">
+              <label><input type="radio" name="Peranan_Bimsuh" value="1" required /> 1</label>
+              <label><input type="radio" name="Peranan_Bimsuh" value="2" /> 2</label>
+              <label><input type="radio" name="Peranan_Bimsuh" value="3" /> 3</label>
+              <label><input type="radio" name="Peranan_Bimsuh" value="4" /> 4</label>
+            </div>
+
+            <span>Sangat Puas</span>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <div class="section-header">Kritik dan Saran dari Peserta Pelatihan</div>
+
+          <textarea name="Kritik_Saran" rows="4" placeholder="Jawaban Anda"></textarea>
+        </div>
+
+        <button type="submit">Kirim Evaluasi</button>
+      </form>
+    </div>
+    <!-- ===== END FORM PAGE ===== -->
+
+    <!-- ================= SUCCESS OVERLAY ================= -->
+    <div class="overlay" id="successOverlay">
+      <div class="success-card">
+        <div class="checkmark">✔</div>
+        <h2>Evaluasi Berhasil Dikirim</h2>
+        <p>Terima kasih atas partisipasi Anda.</p>
+        <button onclick="kembaliKeAwal()">Isi Evaluasi Lagi</button>
+      </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
