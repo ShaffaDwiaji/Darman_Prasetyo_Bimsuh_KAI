@@ -25,7 +25,7 @@ padding: 50px 15px;
 color: var(--kai-text);
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header-wrapper {
 background: white;
@@ -39,7 +39,6 @@ position: relative;
 overflow: hidden;
 }
 
-/* aksen garis orange */
 .header-wrapper::before {
 content: "";
 position: absolute;
@@ -80,7 +79,7 @@ color: #555;
 line-height: 1.6;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 
 .container {
 width: 100%;
@@ -94,7 +93,6 @@ position: relative;
 overflow: hidden;
 }
 
-/* subtle watermark effect */
 .container::after {
 content: "";
 position: absolute;
@@ -131,7 +129,7 @@ border-bottom: 3px solid var(--kai-orange);
 display: inline-block;
 }
 
-/* ================= INPUT ================= */
+/* INPUT */
 
 label {
 font-weight: 600;
@@ -162,7 +160,7 @@ background: white;
 box-shadow: 0 0 0 4px rgba(47, 42, 120, 0.12);
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 button {
 width: 100%;
@@ -176,19 +174,16 @@ cursor: pointer;
 transition: 0.25s;
 }
 
-/* Tombol Login */
 #loginPage button:first-of-type {
 background: linear-gradient(90deg, var(--kai-orange), #ff9b5a);
 color: white;
 }
 
-/* Tombol Submit */
 button[type="submit"] {
 background: linear-gradient(90deg, var(--kai-blue), #4238a6);
 color: white;
 }
 
-/* Logout */
 .logout {
 background: #1e1e1e;
 color: white;
@@ -199,7 +194,7 @@ transform: translateY(-2px);
 opacity: 0.9;
 }
 
-/* ================= SCALE ================= */
+/* SCALE */
 
 .scale-container {
 margin-top: 28px;
@@ -241,7 +236,7 @@ accent-color: var(--kai-blue);
 cursor: pointer;
 }
 
-/* ================= FORM CARD ================= */
+/* FORM CARD */
 
 .form-card {
 background: var(--kai-light);
@@ -258,7 +253,7 @@ color: var(--kai-blue);
 margin-bottom: 18px;
 }
 
-/* ================= SUCCESS ================= */
+/* SUCCESS */
 
 .overlay {
 position: fixed;
@@ -320,7 +315,7 @@ transform: none !important;
 box-shadow: none !important;
 }
 
-/* ================= RESPONSIVE MOBILE ================= */
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
   .header-wrapper {
     padding: 30px 20px;
@@ -332,22 +327,15 @@ box-shadow: none !important;
     gap: 15px;
   }
 
-  .logo-left {
-    order: 1;
-  }
-
-  .logo-right {
-    order: 2;
-  }
-
+  .logo-left { order: 1; }
+  .logo-right { order: 2; }
   .header-center {
     order: 3;
     width: 100%;
     margin-top: 10px;
   }
 
-  .logo-left img,
-  .logo-right img {
+  .logo-left img, .logo-right img {
     height: 45px;
   }
 
@@ -357,5 +345,56 @@ box-shadow: none !important;
 
   .header-center p {
     font-size: 13px;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+  .form-card {
+    padding: 20px 15px;
+  }
+  .scale-container {
+    padding: 20px 15px;
+  }
+
+  .scale-options {
+    flex-wrap: wrap;
+  }
+
+  .scale-options span:first-of-type {
+    order: 1;
+    width: 48%;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .scale-options span:last-of-type {
+    order: 2;
+    width: 48%;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .scale-options .numbers {
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 15px;
+    gap: 0;
+  }
+
+  .scale-options .numbers label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0;
+  }
+  
+  .scale-options input[type="radio"] {
+    width: 24px;
+    height: 24px;
   }
 }
