@@ -319,3 +319,43 @@ opacity: 0.8;
 transform: none !important;
 box-shadow: none !important;
 }
+
+/* ================= RESPONSIVE MOBILE ================= */
+@media (max-width: 768px) {
+  .header-wrapper {
+    padding: 30px 20px;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .logo-left {
+    order: 1;
+  }
+
+  .logo-right {
+    order: 2;
+  }
+
+  .header-center {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .logo-left img,
+  .logo-right img {
+    height: 45px;
+  }
+
+  .header-center h1 {
+    font-size: 22px;
+  }
+
+  .header-center p {
+    font-size: 13px;
+  }
+}
