@@ -1,4 +1,4 @@
-const masterURL = "https://script.google.com/macros/s/AKfycbz5D9VRrzxrF3S9W07vZQ01ETxK0Ha_nGMJfZ_8oL0Qb_zMlot-8BGJ8wlg2ubKpLrs/exec";
+const masterURL = "https://script.google.com/macros/s/AKfycbzYdTInMv3c9RmBjTsEJKtTM8BQQgbRqmFomqrlndPMmswiHFXjOpIMLRARCT6KUGD8Rg/exec";
 
 document.addEventListener("DOMContentLoaded", function () {
     // Tanggal Otomatis
@@ -22,10 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
         const diklatSelect = document.getElementById("diklatSelect");
         const kedudukanSelect = document.getElementById("kedudukanSelect");
-        if (!diklatSelect || !kedudukanSelect) return;
+        const angkatanSelect = document.getElementById("angkatanSelect");
+
+        if (!diklatSelect || !kedudukanSelect || !angkatanSelect) return;
 
         diklatSelect.innerHTML = '<option value="">-- Pilih Diklat --</option>';
         kedudukanSelect.innerHTML = '<option value="">-- Pilih Kedudukan --</option>';
+        angkatanSelect.innerHTML = '<option value="">-- Pilih Angkatan --</option>';
 
         data.diklat.forEach(item => {
             let opt = document.createElement("option");
@@ -38,7 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
             opt.value = opt.textContent = item;
             kedudukanSelect.appendChild(opt);
         });
+
+        data.angkatan.forEach(item => {
+            let opt = document.createElement("option");
+            opt.value = opt.textContent = item;
+            angkatanSelect.appendChild(opt);
         });
+    });
 
     // Submit Form
     const evalForm = document.getElementById("evaluasiForm");
@@ -76,14 +85,16 @@ window.login = function () {
     const nipp = document.getElementById("NIPPPeserta").value.trim();
     const diklat = document.getElementById("diklatSelect").value;
     const kedudukan = document.getElementById("kedudukanSelect").value;
+    const angkatan = document.getElementById("angkatanSelect").value;
 
-    if (!nama || !nipp || !diklat || !kedudukan) return alert("Semua kolom wajib diisi!");
+    if (!nama || !nipp || !diklat || !kedudukan || !angkatan) return alert("Semua kolom wajib diisi!");
     if (!/^[0-9]+$/.test(nipp)) return alert("NIPP harus angka!");
 
     document.getElementById("namaHidden").value = nama;
     document.getElementById("nippHidden").value = nipp;
     document.getElementById("diklatHidden").value = diklat;
     document.getElementById("kedudukanHidden").value = kedudukan;
+    document.getElementById("angkatanHidden").value = angkatan;
 
     document.getElementById("pesertaNama").innerText = nama;
     document.getElementById("pesertaNIPP").innerText = nipp;

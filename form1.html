@@ -54,6 +54,11 @@
       <option value="">Memuat data...</option>
     </select>
 
+    <label>Angkatan</label>
+    <select id="angkatanSelect">
+      <option value="">Memuat data...</option>
+    </select>
+
       <button onclick="login()">Masuk</button>
       <button onclick="window.location.href='index.html'">Kembali</button>
     </div>
@@ -75,6 +80,7 @@
         <input type="hidden" name="NIPP" id="nippHidden" />
         <input type="hidden" name="Diklat" id="diklatHidden" />
         <input type="hidden" name="Kedudukan" id="kedudukanHidden" />
+        <input type="hidden" name="Angkatan" id="angkatanHidden" />
         <input type="hidden" name="form_type" value="FASILITAS">
 
         <!-- KEPUASAN -->
@@ -297,7 +303,7 @@
 
     <div class="form-card">
       <div class="section-header">
-        Apa yang Anda Dapat Setelah Mengikuti Diklat Ini(terkait pengetahuan, keterampilan, dan sikap)
+        Apa yang Anda Dapat Setelah Mengikuti Diklat Ini (terkait pengetahuan, keterampilan, dan sikap)
       </div>
 
       <textarea name="dapat_apa" rows="4"

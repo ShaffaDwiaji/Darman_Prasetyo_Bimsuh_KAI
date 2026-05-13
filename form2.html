@@ -54,6 +54,11 @@
         <option value="">Memuat data...</option>
       </select>
 
+      <label>Angkatan</label>
+      <select id="angkatanSelect">
+        <option value="">Memuat data...</option>
+      </select>
+
       <button onclick="login()">Masuk</button>
       <button onclick="window.location.href = 'index.html'">Kembali</button>
     </div>
@@ -73,6 +78,7 @@
         <input type="hidden" name="NIPP" id="nippHidden" />
         <input type="hidden" name="Diklat" id="diklatHidden" />
         <input type="hidden" name="Kedudukan" id="kedudukanHidden" />
+        <input type="hidden" name="Angkatan" id="angkatanHidden" />
         <input type="hidden" name="form_type" value="BIMSUH" />
 
         <!-- KEPUASAN -->
@@ -100,7 +106,7 @@
         </div>
 
         <div class="scale-container">
-          <div class="scale-label">Metode yang diberlakukan bimsuh sangat efektif untuk meningkatkan kualitas pembentukan prbiadi saya <span style="color: red">*</span></div>
+          <div class="scale-label">Metode yang diberlakukan bimsuh sangat efektif untuk meningkatkan kualitas pembentukan pribadi saya <span style="color: red">*</span></div>
 
           <div class="scale-options">
             <span>Sangat Tidak Puas</span>
@@ -117,7 +123,7 @@
         </div>
 
         <div class="scale-container">
-          <div class="scale-label">Saya tidak merasa keberatan dengan metode dimaksud pada point no.2 <span style="color: red">*</span></div>
+          <div class="scale-label">Saya tidak merasa keberatan dengan metode yang dimaksud pada point no.2 <span style="color: red">*</span></div>
 
           <div class="scale-options">
             <span>Sangat Tidak Puas</span>
@@ -168,7 +174,7 @@
         </div>
 
         <div class="scale-container">
-          <div class="scale-label">Peranan bimsuh pada pelayihan yang saya ikuti sangatlah penting <span style="color: red">*</span></div>
+          <div class="scale-label">Peranan bimsuh pada pelatihan yang saya ikuti sangatlah penting <span style="color: red">*</span></div>
 
           <div class="scale-options">
             <span>Sangat Tidak Puas</span>
